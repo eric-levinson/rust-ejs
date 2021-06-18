@@ -1,0 +1,104 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+<header>
+    <% include ../partials/header %>
+
+
+</header>
+
+<main>
+
+  <div class="py-5 rare-wind-gradient text-dark min-vh-100">
+
+    <div class="container pt-5">
+        <h1>More Info</h1>
+      <div class="row">
+        <!-- Current Players -->
+
+
+          <div class="col-md-4">
+            <h2>Commands</h2>
+            <input class="form-control" id="myInput" type="text" placeholder="Search..">
+            <br/>
+            <ul class="list-group" id="myList">
+              <li class="list-group-item"><code>/EnderStorage help</code></li>
+              <li class="list-group-item"><code>/advancement <grant|revoke|test> <player></code></li>
+              <li class="list-group-item"><code>Commands provided by Applied Energistics 2 - use /ae2 list for a list, and /ae2 help _____ for help with a command.</code></li>
+              <li class="list-group-item"><code>/aroma1997 reloadclient OR /aroma1997 setupDeathCounter OR /aroma1997 setupDeathCounter <location> OR /aroma1997 setupDeathCounter <location> <name> OR /aroma1997 dimension OR /aroma1997 tp <dimension> OR /aroma1997 tp <x> <y> <z> OR /aroma1997 tp <x> <y> <z> <dimension> OR /aroma1997 tabcomplete <command> OR /aroma1997 openGui OR /aroma1997 debugCrash</code></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>Mod List</h2>
+            <input class="form-control" id="myInputMod" type="text" placeholder="Search..">
+            <br />
+            <ul class="list-group" id="myOtherList">
+              <%if (typeof modNames == 'undefined') { %>
+                <li class="list-group-item">No mods found</li>
+              <% } else { %>
+                <% for (var i = 0; i < modNames.length; i++) { %>
+                <li class="list-group-item"><%= modNames[i] %></li>
+                <% }; %>
+              <% } %>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h2>Current Players</h2>
+            <input class="form-control" id="myInputPlayer" type="text" placeholder="Search..">
+            <br />
+            <ul class="list-group" id="myThirdList">
+              <%if (typeof playerList == 'undefined') { %>
+                <li class="list-group-item">No players online</li>
+              <% } else { %>
+                <% for (var i = 0; i < playerList.name; i++) { %>
+                <li class="list-group-item"><%= playerList[i] %></li>
+                <% }; %>
+              <% } %>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+    <% include ../partials/footer %>
+</footer>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script>
+$(document).ready(function(){
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  $("#myInputMod").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myOtherList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+  $("#myInputPlayer").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myThirdList li").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+});
+</script>
+
+</body>
+</html>

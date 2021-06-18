@@ -1,0 +1,88 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../partials/head %>
+</head>
+<body>
+
+<header class="h-100">
+    <% include ../partials/header %>
+
+    <div class="mc-img intro-2 h-100">
+      <div class="full-bg-img h-100">
+        <div class="mask rgba-indigo-slight flex-center">
+          <div class="container">
+            <div class="white-text text-center wow fadeInUp">
+              <h1 class="white-text">Deez Community</h1>
+              <h2 class="white-text">Where gamers come to rise up.</h2>
+              <br>
+              <p>Enjoy the full experience on our modded Rust Server today.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</header>
+
+<main>
+
+
+
+<div class="text-center py-5 light-b">
+  <div class="container">
+    <div class="row">
+      <!-- Current Players -->
+      <div class="col-md-4 py-3">
+        <p class="h1"><i class="fas fa-globe-americas"></i></p>
+        <h2 class="">Current Players</h2>
+        <h3><span class="badge badge-dark"><%= online %>/<%= max %></span></h3>
+      </div>
+      <!-- Uptime -->
+      <div class="col-md-4 py-3">
+        <p class="h1"><i class="fas fa-quote-right"></i></p>
+        <h2>Uptime</h2>
+        <h3><span class="badge badge-dark"><%= uptime %></span></h3>
+      </div>
+      <div class="col-md-4 py-3">
+        <p class="h1"><i class="fas fa-cubes"></i></p>
+        <h2>IP and Port</h2>
+        <h3><span class="badge badge-dark"><%= ip %>:<%= port %></span></h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-center py-5 text-light dark-b">
+  <div class="container">
+    <div class="row">
+      <!-- Current Players -->
+      <div class="col-md-4 py-3">
+        <p class="h1 text-light"><i class="fas fa-user-friends"></i></p>
+        <h2 class="text-light">Who are we?</h2>
+        <a class="btn btn-light btn-lg text-dark" href="./about">About Us</a>
+      </div>
+      <!-- Uptime -->
+      <div class="col-md-4 py-3">
+        <p class="h1 text-light"><i class="fas fa-server"></i></p>
+        <h2 class="text-light">Server Info</h2>
+        <a class="btn btn-light btn-lg text-dark" href="./details">Mods and Commands</a>
+      </div>
+      <div class="col-md-4 py-3">
+        <p class="h1 text-light"><i class="fab fa-discord"></i></p>
+        <h2 class="text-light">Deez Discord</h2>
+        <a class="btn btn-light btn-lg text-dark" href="https://discord.gg/rXTq8GbQEC">Join Discord</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+
+<% include ../partials/footer %>
+
+
+</body>
+</html>

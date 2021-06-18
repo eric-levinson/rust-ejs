@@ -1,0 +1,95 @@
+<!-- views/pages/index.ejs -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+
+  <header>
+    <% include ../partials/header %>
+
+
+  </header>
+
+  <main>
+
+    <div class="py-5 heavy-rain-gradient text-dark min-vh-100">
+
+      <div class="container pt-5">
+        <h1>More Info</h1>
+        <div class="row">
+          <!-- Current Players -->
+
+          <div class="col-md-4">
+            <div class="card m-1">
+              <div class="card-body overflow-auto 69vh" style="max-height: 69vh">
+                <h2 class="card-title">Current Players</h2>
+                <input class="form-control" id="myInputPlayer" type="text" placeholder="Search..">
+                <br />
+                <ul class="list-group" id="myThirdList">
+                  <%if (typeof playerList == 'undefined') { %>
+                  <li class="list-group-item">No players online</li>
+                  <% } else { %>
+                  <% for (var i = 0; i < playerList.length; i++) { %>
+                  <li class="list-group-item"><%= playerList[i] %></li>
+                  <% }; %>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card m-1">
+              <div class="card-body overflow-auto 69vh" style="max-height: 69vh">
+                <h2 class="card-title">Commands</h2>
+                <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                <br />
+                <ul class="list-group" id="myList">
+                  <%if (typeof commandList == 'undefined') { %>
+                  <li class="list-group-item">No commands found</li>
+                  <% } else { %>
+                  <% for (var i = 0; i < commandList.length; i++) { %>
+                  <li class="list-group-item"><%= commandList[i] %></li>
+                  <% }; %>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card m-1">
+              <div class="card-body overflow-auto 69vh" style="max-height: 69vh">
+                <h2 class="card-title">Mod List</h2>
+                <input class="form-control" id="myInputMod" type="text" placeholder="Search..">
+                <br />
+                <ul class="list-group" id="myOtherList">
+                  <%if (typeof modNames == 'undefined') { %>
+                  <li class="list-group-item">No mods found</li>
+                  <% } else { %>
+                  <% for (var i = 0; i < modNames.length; i++) { %>
+                  <li class="list-group-item"><%= modNames[i] %></li>
+                  <% }; %>
+                  <% } %>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <% include ../partials/footer %>
+
+
+  <script src="/js/details.js"></script>
+
+</body>
+
+</html>
